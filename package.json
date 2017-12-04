@@ -1,0 +1,24 @@
+{
+  "name": "@coryarmbrecht/react-firebase-comments",
+  "version": "0.0.1",
+  "description": "Comment system built with React and Firebase.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coryarmbrecht/comments-react-firebase.git"
+  },
+  "keywords": [
+    "comments",
+    "react",
+    "firebase"
+  ],
+  "author": "Cory Armbrecht",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coryarmbrecht/comments-react-firebase/issues"
+  },
+  "homepage": "https://github.com/coryarmbrecht/comments-react-firebase#readme"
+}
