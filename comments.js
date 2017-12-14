@@ -2,11 +2,13 @@ import React, {Component} from 'react'
 import ReactDOM from 'react-dom';
 import _ from 'lodash'
 import {FbAppDB} from './firebaseSetup'
-import {fadeInUp, shake} from 'react-animations'
+import {fadeInUp, shake, tada} from 'react-animations'
 import { StyleSheet, css } from 'aphrodite'
+
 import Comment from './comment'
 //import Transition from 'react-transition-group/Transition'
 const commentsDB = FbAppDB.ref('comments')
+
 //const  messagesRef = FBApp.ref("messages/");
 
 export default class Comments extends Component{
@@ -59,7 +61,8 @@ export default class Comments extends Component{
 	}
 	componentWillUnmount = () => {
 		this.state.commentsRef.off("value", (offval)=>{console.log('componentWillUnmount = ', offval)})
-	}
+    }
+    /*
 	shouldComponentUpdate = (newprops) => {
 		console.log('Comments shouldComponentUpdate, newprops = ', newprops)
 		if(this.state.loaded === true){
@@ -68,7 +71,11 @@ export default class Comments extends Component{
 		}
 		return true
 		
-	}
+    }
+    */
+    componentWillReceiveProps = (newProps) => {
+        console.log('Comments shouldComponentUpdate, newprops = ', newprops)
+    }
 	render = () => {
 		console.log('comments render this.state =', this.state)
 		return (
@@ -143,10 +150,8 @@ const styles = StyleSheet.create({
 	},
 	shake: {
 		animation: 'shake 1s',
-		':hover': {
-			backgroundColor: 'pink',
-			animation: 'tada 1s'
-		}
-	}
+		
+    },
+    
 })
 

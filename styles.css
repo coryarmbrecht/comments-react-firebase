@@ -1,0 +1,35 @@
+* {
+    font-family: Helvetica, "Franklin Gothic Medium";
+}
+
+.comment {
+    animationName: fadeInUp;
+    animationDuration: 1s;
+    backgroundColor: tan;
+}
+.comment--empty {
+    animationName: fadeInUp;
+    animationDuration: 1s;
+    backgroundColor: tan;
+}
+.comment--empty {}
+
+.comment--enters {
+
+}
+.comment--enters:hover {
+    backgroundColor: pink;
+    animation: fadeInUp 1s;
+}
+.comment--exists {
+    backgroundColor: 'green';
+}
+.comment--exit {
+    backgroundColor: 'red';
+}
+    
+},
+fadeInUp: {
+    animationName: fadeInUp;
+    animationDuration: '1s'
+},
