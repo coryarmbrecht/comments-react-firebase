@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import _ from 'lodash'
 import {FbAppDB} from './firebaseSetup'
 import {fadeInUp, shake} from 'react-animations'
@@ -23,7 +24,7 @@ export default class Comment extends Component{
         */
         setTimeout(()=>{
             //console.log('Comment componentDidMount')
-			this.setState({visualState:'--entering'})
+			//
         }, 500)
 	}
 	componentDidMount = () => {
@@ -31,10 +32,10 @@ export default class Comment extends Component{
         
         console.log('visualState = ', this.state.visualState)
 		
-        
+        this.setState({visualState:''})
 		setTimeout(()=>{
             //console.log('Comment componentDidMount')
-			this.setState({visualState:''})
+			
         }, 1500)
         
 	}

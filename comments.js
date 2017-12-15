@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom';
+//import { CSSTransition } from 'react-transition-group/CSSTransition'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import _ from 'lodash'
 import moment from 'moment'
 import timeago from 'timeago.js'
@@ -93,7 +95,7 @@ export default class Comments extends Component{
 					margin: .2,
 				}}>Comments</h2>
 				{/*
-				<Transition
+				<ReactCSSTransitionGroup
 					transitionName="listAnim"
 					transitionEnterTimeout={1500}
 					transitionLeaveTimeout={500}
@@ -108,15 +110,28 @@ export default class Comments extends Component{
                         })
                     }
 				</div>
-				</Transition>
+				</ReactCSSTransitionGroup>
 				*/}
 				<div className={css(styles.list)} styles={{alignSelf:'center','overflowY':'scroll',}}>
-					{
-						this.state.comments.map((comment) => {
-							console.log('comment = ', comment)
-							return <li key={comment.uid} ><Comment comment={comment.comment}  /></li>
-						})
-					}
+                    
+                    <ReactCSSTransitionGroup
+                        transitionName="fadr"
+                        transitionEnterTimeout={1000}
+                        transitionLeaveTimeout={1000}
+                        transitionAppear={true}
+                        transitionAppearTimeout={1000}
+                    
+                    >
+                        {
+                            this.state.comments.map((comment) => {
+                                console.log('comment = ', comment)
+                                return <li key={comment.uid} ><Comment comment={comment.comment}  /></li>
+                            })
+                        }
+                    </ReactCSSTransitionGroup>
+                    
+                    
+                    
 				</div>
                 <div>
                     <label htmlFor="name">Name:</label>

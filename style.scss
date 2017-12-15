@@ -1,5 +1,6 @@
 @import "./node_modules/animate.css/source/attention_seekers/tada";
 @import "./node_modules/animate.css/source/fading_entrances/fadeInUp";
+@import "./node_modules/animate.css/source/fading_entrances/fadeInUpBig";
 @import "./node_modules/animate.css/source/attention_seekers/shake";
 
 * {
@@ -49,7 +50,7 @@
 
     &--edited {
         background-color: pink;
-        animation: tada 1s;
+        animation: fadeInUpBig 1s;
         //animation-direction: alternate;
         &:hover, &:active {
             //animation: scaleanimation 100ms linear;
@@ -83,16 +84,49 @@
 
         &:hover {
             background-color: pink;
-            animation: tada 1s
+            animation: tada 1s;
         }
     }
 
     &--exiting {
-        background-color: red
+        background-color: red;
     }
     
 }
 .fadeInUp {
     animation-name: fadeInUp;
-    animation-duration: 1s
+    animation-duration: 1s;
+}
+
+.fadr {
+    &-enter {
+        opacity: 0;
+        
+    }
+
+    &-enter-active {
+        opacity: 1;
+        transition: all 1000ms ease-out;
+        transition-delay: 300ms;
+    }
+
+    &-leave {
+        opacity: 1;
+    }
+
+    &-leave-active {
+        opacity: 0;
+        transition: all 1000ms ease-out;
+    }
+    // This is functioning as the First half of the transition. The Element that is being transitioned FROM
+    &-appear {
+        //animation: tada 1s;
+        opacity:.2;
+        background-color: grey;
+    }
+
+    &-appear-active {
+        opacity: 1;
+        transition: all 1000ms ease-out;
+    }
 }
