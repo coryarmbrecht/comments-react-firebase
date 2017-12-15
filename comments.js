@@ -1,10 +1,12 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom';
 import _ from 'lodash'
+import moment from 'moment'
+import timeago from 'timeago.js'
 import {FbAppDB} from './firebaseSetup'
 import {fadeInUp, shake, tada} from 'react-animations'
 import { StyleSheet, css } from 'aphrodite'
-
+import './style.scss'
 import Comment from './comment'
 //import Transition from 'react-transition-group/Transition'
 const commentsDB = FbAppDB.ref('comments')
@@ -19,7 +21,7 @@ export default class Comments extends Component{
 			newComment: 'New Comment',
 			store: {},
 			comment: 'New Comment',
-			comments: [{comment:"Change this page..."}, {comment:"Add this feature..."}, {comment:"You have a bug that..."}],
+			comments: [{comment:"Change this page...",uid:'159djb'}, {comment:"Add this feature...",uid:'45adb'}, {comment:"You have a bug that...",uid:'z5djb'}],
 			commentsRef: commentsDB,
 			theme: null,
 			toggled: false,
@@ -36,6 +38,8 @@ export default class Comments extends Component{
             
             const snapshotComments = _.values(snapshot.val());
             console.log('snapshotComments = ', snapshotComments)
+            const snapshotCommentsKeys = _.values(snapshot.key);
+            console.log('snapshotCommentsKeys = ', snapshotCommentsKeys)
             console.log('loaded:true')
             //let snapshotCommentsArray = Object.keys(snapshotComments);
             //console.log('snapshotCommentsArray = ', snapshotCommentsArray)
@@ -56,7 +60,9 @@ export default class Comments extends Component{
 		let newCommentKey = this.state.commentsRef.push().key;
 
 		this.state.commentsRef.child(newCommentKey).update({
-			comment: this.state.newComment
+            comment: this.state.newComment,
+            ts: moment.now(),
+            uid: newCommentKey
 		})
 	}
 	componentWillUnmount = () => {
@@ -106,9 +112,9 @@ export default class Comments extends Component{
 				*/}
 				<div className={css(styles.list)} styles={{alignSelf:'center','overflowY':'scroll',}}>
 					{
-						this.state.comments.map((comment, index) => {
-							//console.log('comment = ', comment)
-							return <li key={index} ><Comment comment={comment.comment}  /></li>
+						this.state.comments.map((comment) => {
+							console.log('comment = ', comment)
+							return <li key={comment.uid} ><Comment comment={comment.comment}  /></li>
 						})
 					}
 				</div>

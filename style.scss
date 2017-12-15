@@ -50,6 +50,14 @@
     &--edited {
         background-color: pink;
         animation: tada 1s;
+        //animation-direction: alternate;
+        &:hover, &:active {
+            //animation: scaleanimation 100ms linear;
+            background-color: lightcoral;
+            transform: scale(.98); 
+            //opacity: .8;
+            transition: transform 80ms ease-out, background-color 120ms ease;
+        }
     }
     
     &--empty {
@@ -70,7 +78,7 @@
     }
 
     &--exists {
-        background-color: green;
+        background-color: purple;
         animation-name: shake;
 
         &:hover {
