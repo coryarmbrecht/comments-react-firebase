@@ -39,9 +39,9 @@ export default class Comments extends Component{
             //console.log('retirevedComments snapshot = ', snapshot.val());
             
             const snapshotComments = _.values(snapshot.val());
-            console.log('snapshotComments = ', snapshotComments)
-            const snapshotCommentsKeys = _.values(snapshot.key);
-            console.log('snapshotCommentsKeys = ', snapshotCommentsKeys)
+            //console.log('snapshotComments = ', snapshotComments)
+            const snapshotCommentsKeys = _.keys(snapshot.val());
+            //console.log('snapshotCommentsKeys = ', snapshotCommentsKeys)
             console.log('loaded:true')
             //let snapshotCommentsArray = Object.keys(snapshotComments);
             //console.log('snapshotCommentsArray = ', snapshotCommentsArray)
@@ -116,7 +116,7 @@ export default class Comments extends Component{
                     
                     <ReactCSSTransitionGroup
                         transitionName="fadr"
-                        transitionEnterTimeout={1000}
+                        transitionEnterTimeout={3000}
                         transitionLeaveTimeout={1000}
                         transitionAppear={true}
                         transitionAppearTimeout={1000}

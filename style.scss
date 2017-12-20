@@ -31,15 +31,17 @@
     50% { background-color: teal; transform: scale(0.95); -webkit-transform: scale(0.95); }
     100% { background-color: teal; transform: scale(1); -webkit-transform: scale(1);}
 }
+
 .comment {
     
     animation-duration: 1s;
-    background-color: green;
-    transition: all 100ms linear;
+    //background-color: green;
+    transition: all 1000ms linear;
     opacity: 1;
     transform: scale(1); 
     -webkit-transform: scale(1.0);
 
+    
     &:hover, &:active {
         //animation: scaleanimation 100ms linear;
         background-color: teal;
@@ -47,11 +49,12 @@
         //opacity: .8;
         transition: transform 80ms ease-out, background-color 120ms ease;
     }
-
+    
     &--edited {
         background-color: pink;
-        animation: fadeInUpBig 1s;
+        animation: tada 1s;
         //animation-direction: alternate;
+
         &:hover, &:active {
             //animation: scaleanimation 100ms linear;
             background-color: lightcoral;
@@ -60,16 +63,16 @@
             transition: transform 80ms ease-out, background-color 120ms ease;
         }
     }
-    
+   /*
     &--empty {
         opacity: 0.01;
         background-color: red;
         transition: opacity 1000ms linear, background-color 1000ms linear, transform 100ms linear;
     }
-
+     
     &--entering {
         opacity: .5;
-        //animation-name: fadeInUp;
+        animation-name: fadeInUpBig;
         background-color: yellow;
         transition: opacity 1000ms linear, background-color 1000ms linear, transform 100ms linear;
     }
@@ -91,42 +94,70 @@
     &--exiting {
         background-color: red;
     }
+    */
     
 }
+
 .fadeInUp {
     animation-name: fadeInUp;
     animation-duration: 1s;
 }
 
 .fadr {
+    //background-color: firebrick;
+    
+    // This is used after the retrieved comments are loaded,
+    // -appear is used on initial state comments.
     &-enter {
-        opacity: 0;
-        
+        opacity: 1;     
+        background-color: green;
+        //animation: shake 1s;
+        animation: tada 1.5s;
+        //animation-delay: 0.25s;
+
+        &:hover, &:active {
+            //animation: scaleanimation 100ms linear;
+            background-color: teal;
+            transform: scale(.98); 
+            //opacity: .8;
+            transition: all 1000ms linear, transform 80ms ease-out, background-color 120ms ease;
+        }
     }
 
-    &-enter-active {
+    &.fadr-enter-active {
         opacity: 1;
-        transition: all 1000ms ease-out;
-        transition-delay: 300ms;
+        background-color: yellow !important;
+        //animation-name: fadeInUpBig;
+        transition: all 1000ms linear, background-color 1000ms linear, transform 100ms linear;
     }
 
     &-leave {
         opacity: 1;
+
+        background-color: rgb(149, 0, 255);
     }
 
     &-leave-active {
+        background-color: rgb(149, 0, 255);
         opacity: 0;
         transition: all 1000ms ease-out;
     }
     // This is functioning as the First half of the transition. The Element that is being transitioned FROM
+    // Right now this only works on the initial state.comments . After that, it renders the newly firebase comments with -enter.
+    
     &-appear {
-        //animation: tada 1s;
-        opacity:.2;
-        background-color: grey;
+        
+        opacity:.01;
+        background-color: orange !important;
+        transition: all 1000ms linear, background-color 1500ms linear, transform 100ms linear;
+    
+        
     }
 
     &-appear-active {
         opacity: 1;
-        transition: all 1000ms ease-out;
+        background-color: green;
+        transition: all 1500ms ease-out;
+       
     }
 }

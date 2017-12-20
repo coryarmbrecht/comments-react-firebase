@@ -30,12 +30,12 @@ export default class Comment extends Component{
 	componentDidMount = () => {
         console.log('Comment componentDidMount')
         
-        console.log('visualState = ', this.state.visualState)
 		
         this.setState({visualState:''})
 		setTimeout(()=>{
             //console.log('Comment componentDidMount')
 			
+            console.log('visualState = ', this.state.visualState)
         }, 1500)
         
 	}
