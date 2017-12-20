@@ -2,7 +2,7 @@
   "name": "@coryarmbrecht/react-firebase-comments",
   "version": "0.0.1",
   "description": "Comment system built with React and Firebase.",
-  "main": "index.js",
+  "main": "comments.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
