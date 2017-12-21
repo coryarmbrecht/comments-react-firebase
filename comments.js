@@ -28,7 +28,6 @@ export default class Comments extends Component{
 			theme: null,
 			toggled: false,
 		}
-		//this.state = {
 	}
 	componentWillMount = () => {
 		console.log('componentWillMount this.state = ', this.state)

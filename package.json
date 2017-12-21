@@ -2,9 +2,10 @@
   "name": "@coryarmbrecht/react-firebase-comments",
   "version": "0.0.1",
   "description": "Comment system built with React and Firebase.",
-  "main": "index.js",
+  "main": "./dist/comments.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel comments.js --out-file ./dist/comments.js"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,11 @@
     "@babel/core": "^7.0.0-beta.35",
     "@babel/preset-env": "^7.0.0-beta.35",
     "animate.css": "^3.5.2",
+    "babel-cli": "^6.26.0",
     "babel-plugin-react-require": "3.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react-app": "3.1.0",
     "node-sass": "4.7.2",
