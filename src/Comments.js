@@ -170,6 +170,8 @@ import {
   addDoc,
   query,
   onSnapshot,
+  serverTimestamp,
+  orderBy,
 } from "firebase/firestore";
 import { css, StyleSheet } from "aphrodite";
 
@@ -177,7 +179,7 @@ const Comments = () => {
   const [comments, setComments] = useState([]);
   const [message, setMessage] = useState("");
   const dbRef = collection(FbAppDb, "comments");
-  const q = query(collection(FbAppDb, "comments"));
+  const q = query(collection(FbAppDb, "comments"), orderBy("timestamp", "asc"));
 
   useEffect(() => {
     onSnapshot(q, (querySnapshot) => {
@@ -192,8 +194,12 @@ const Comments = () => {
 
   const suggest = async () => {
     try {
-      const docRef = await addDoc(dbRef, { comment: message });
+      const obj = {
+        comment: message,
+        timestamp: serverTimestamp(),
+      };
       setMessage("");
+      const docRef = await addDoc(dbRef, obj);
       alert("Comment has been added successfully");
     } catch (error) {
       alert("Some issue occured please try again");
