@@ -27,11 +27,9 @@ const Comments = () => {
     onSnapshot(q, (querySnapshot) => {
       const arr = [];
       querySnapshot.forEach((doc) => {
-        console.log(doc);
         arr.push({ ...doc.data(), id: doc?.id });
       });
       setComments(arr);
-      console.log(arr);
     });
   }, []);
 
