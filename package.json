@@ -1,52 +1,44 @@
 {
-  "name": "@coryarmbrecht/react-firebase-comments",
-  "version": "0.0.1",
-  "description": "Comment system built with React and Firebase.",
-  "main": "./dist/comments.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel comments.js --out-file ./dist/comments.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/coryarmbrecht/comments-react-firebase.git"
-  },
-  "keywords": [
-    "comments",
-    "react",
-    "firebase"
-  ],
-  "author": "Cory Armbrecht",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/coryarmbrecht/comments-react-firebase/issues"
-  },
-  "homepage": "https://github.com/coryarmbrecht/comments-react-firebase#readme",
-  "devDependencies": {
-    "@babel/core": "^7.0.0-beta.35",
-    "@babel/preset-env": "^7.0.0-beta.35",
-    "animate.css": "^3.5.2",
-    "babel-cli": "^6.26.0",
-    "babel-plugin-react-require": "3.0.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react-app": "3.1.0",
-    "node-sass": "4.7.2",
-    "poi": "9.5.11",
-    "sass-loader": "6.0.6"
-  },
+  "name": "comments-react-firebase",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "aphrodite": "1.2.5",
-    "firebase": "4.8.0",
-    "lodash": "4.17.4",
-    "moment": "2.19.4",
-    "react": "16.2.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "aphrodite": "^2.4.0",
+    "firebase": "^9.21.0",
+    "moment": "^2.29.4",
+    "react": "^18.2.0",
     "react-addons-css-transition-group": "^15.6.2",
-    "react-animations": "1.0.0",
-    "react-dom": "16.2.0",
-    "react-transition-group": "^2.2.1",
-    "timeago.js": "3.0.2"
+    "react-animations": "^1.0.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "react-transition-group": "^4.4.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -28,8 +28,7 @@
     backgroundColor: 'red';
 }
     
-},
 fadeInUp: {
     animationName: fadeInUp;
-    animationDuration: '1s'
+    animationDuration: '1s';
 },
