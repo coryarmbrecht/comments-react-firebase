@@ -27,9 +27,11 @@ const Comments = () => {
     onSnapshot(q, (querySnapshot) => {
       const arr = [];
       querySnapshot.forEach((doc) => {
-        arr.push(doc.data());
+        console.log(doc);
+        arr.push({ ...doc.data(), id: doc?.id });
       });
       setComments(arr);
+      console.log(arr);
     });
   }, []);
 
@@ -42,7 +44,7 @@ const Comments = () => {
         };
         setMessage("");
         const docRef = await addDoc(dbRef, obj);
-        alert("Comment has been added successfully");
+        // alert("Comment has been added successfully");
       } catch (error) {
         alert("Some issue occured please try again");
         console.log(error);
@@ -70,7 +72,7 @@ const Comments = () => {
       >
         {comments?.map((comment, i) => {
           return (
-            <li key={i} className={`fade-in-up`}>
+            <li key={comment?.id} className={`fade-in-up`}>
               <Comment comment={comment.comment} />
             </li>
           );
