@@ -1,7 +1,7 @@
-@import "./node_modules/animate.css/source/attention_seekers/tada";
-@import "./node_modules/animate.css/source/fading_entrances/fadeInUp";
-@import "./node_modules/animate.css/source/fading_entrances/fadeInUpBig";
-@import "./node_modules/animate.css/source/attention_seekers/shake";
+// @import "./node_modules/animate.css/source/attention_seekers/tada";
+// @import "./node_modules/animate.css/source/fading_entrances/fadeInUp";
+// @import "./node_modules/animate.css/source/fading_entrances/fadeInUpBig";
+// @import "./node_modules/animate.css/source/attention_seekers/shake";
 
 * {
     font-family: Helvetica;
@@ -124,7 +124,7 @@
         }
     }
 
-    &.fadr-enter-active {
+    &-enter-active {
         opacity: 1;
         background-color: yellow !important;
         //animation-name: fadeInUpBig;

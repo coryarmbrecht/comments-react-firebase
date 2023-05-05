@@ -1,6 +1,6 @@
 // import React, { Component } from "react";
 // import _ from "lodash";
-// import "./style.scss";
+import "./style.scss";
 
 // export default class Comment extends Component {
 //   constructor(props) {
@@ -65,10 +65,22 @@
 //   };
 // }
 
-import React from "react";
+import React, { useState } from "react";
 
 const Comment = ({ comment }) => {
-  return <div>{comment}</div>;
+  const [animate, setAnimate] = useState("");
+
+  const handleClick = () => {
+    setAnimate(true);
+    setTimeout(() => {
+      setAnimate(false);
+    }, 2000);
+  };
+  return (
+    <div className={`comment ${animate && "tada"}`} onClick={handleClick}>
+      <p>{comment}</p>
+    </div>
+  );
 };
 
 export default Comment;

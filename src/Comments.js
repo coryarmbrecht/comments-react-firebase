@@ -9,7 +9,7 @@
 
 import { fadeInUp, shake, tada } from "react-animations";
 // import { StyleSheet, css } from "aphrodite";
-// // import "./style.scss";
+import "./style.scss";
 // // import Comment from "./Comment";
 import Comment from "./Comment";
 // // import Transition from "react-transition-group/Transition";
@@ -162,11 +162,10 @@ import Comment from "./Comment";
 //   };
 // }
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FbAppDb } from "./firebasesetup";
 import {
   collection,
-  getDocs,
   addDoc,
   query,
   onSnapshot,
@@ -174,12 +173,16 @@ import {
   orderBy,
 } from "firebase/firestore";
 import { css, StyleSheet } from "aphrodite";
+import "./custom.css";
 
 const Comments = () => {
   const [comments, setComments] = useState([]);
   const [message, setMessage] = useState("");
   const dbRef = collection(FbAppDb, "comments");
-  const q = query(collection(FbAppDb, "comments"), orderBy("timestamp", "asc"));
+  const q = query(
+    collection(FbAppDb, "comments"),
+    orderBy("timestamp", "desc")
+  );
 
   useEffect(() => {
     onSnapshot(q, (querySnapshot) => {
@@ -193,17 +196,21 @@ const Comments = () => {
   }, []);
 
   const suggest = async () => {
-    try {
-      const obj = {
-        comment: message,
-        timestamp: serverTimestamp(),
-      };
-      setMessage("");
-      const docRef = await addDoc(dbRef, obj);
-      alert("Comment has been added successfully");
-    } catch (error) {
-      alert("Some issue occured please try again");
-      console.log(error);
+    if (message) {
+      try {
+        const obj = {
+          comment: message,
+          timestamp: serverTimestamp(),
+        };
+        setMessage("");
+        const docRef = await addDoc(dbRef, obj);
+        alert("Comment has been added successfully");
+      } catch (error) {
+        alert("Some issue occured please try again");
+        console.log(error);
+      }
+    } else {
+      alert("Please enter a comment");
     }
   };
 
@@ -223,22 +230,14 @@ const Comments = () => {
         className={css(styles.list)}
         styles={{ alignSelf: "center", overflowY: "scroll" }}
       >
-        {/* <ReactCSSTransitionGroup
-          transitionName="fadr"
-          transitionEnterTimeout={3000}
-          transitionLeaveTimeout={1000}
-          transitionAppear={true}
-          transitionAppearTimeout={1000} */}
-        {/* > */}
         {comments?.map((comment) => {
           console.log("comment = ", comment);
           return (
-            <li key={comment.id}>
+            <li key={comment.id} className={`fade-in-up`}>
               <Comment comment={comment.comment} />
             </li>
           );
         })}
-        {/* </ReactCSSTransitionGroup> */}
       </div>
       <div>
         <label htmlFor="name">Name:</label>
